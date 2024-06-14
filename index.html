@@ -1,30 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Document</title>
 </head>
+
 <body>
     <header class="header">
-        <h1>
-            Where in the world?
-        </h1>
-        <label for="contentswitch">
-            <input type="checkbox" id="contentswitch">
-            <div class="switchMode">
+        <section class="header__modo">
+            <h1>
+                Where in the world?
+            </h1>
 
+            <div class="modo__icon">
+                <span class="material-symbols-outlined">
+                    dark_mode
+                </span>
+                <span class="material-symbols-outlined">
+                    light_mode
+                </span>
             </div>
-        </label>
+            <label for="switch" class="content-switch">
+                <input type="checkbox" id="switch">
+                <div class="switchMode">
+
+                </div>
+            </label>
+        </section>
     </header>
-    <main class="" id="content">
+    <main class="content" id="content">
+        <section class="content__search">
+            <div class="search__input">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+                <input type="search" placeholder="Search for a country">
+            </div>
+            <div class="options__content" id="options__content">
+                <div class="text__option">
+                    <span>Filter by Region</span>
+                    <span class="material-symbols-outlined icon-ption">
+                        keyboard_arrow_down
+                    </span>
+                </div>
+                <div class="options">
+                    <span value="0" class="option">Africa</span>
+                    <span value="1" class="option">Americas</span>
+                    <span value="2" class="option">Asia</span>
+                    <span value="3" class="option">Europe</span>
+                    <span value="4" class="option">Oceania</span>
+                </div>
+            </div>
+        </section>
+        <section class="content__countries" id="content__countries">
 
+        </section>
     </main>
-
-
-    <input type="text" pattern="/[a-zA-Z]+/g">
+    <footer></footer>
     <script src="main.js"></script>
 </body>
+
 </html>

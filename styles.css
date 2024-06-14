@@ -1,6 +1,256 @@
-*{
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root[data-theme="dark"] {
+    --bg-color-header: #2b3743;
+    --bg-color-main: #212e37;
+    --text-color: #fff;
+    --swithc-bg-color: #ccc7;
+    --switch-color: #fff;
+    --dark-icon-modo: block;
+    --light-icon-modo: none;
+    ---traslateX-switch: translateX(100%);
+}
+
+:root[data-theme="light"] {
+    --bg-color-header: #fff;
+    --bg-color-main: #fff;
+    --text-color: #111;
+    --swithc-bg-color: #ccc7;
+    --switch-color: #fff;
+    --dark-icon-modo: none;
+    --light-icon-modo: block;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+    font-family: sans-serif;
+}
+
+.header {
+    background-color: var(--bg-color-header);
+}
+
+.header__modo {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.modo__icon {
+    margin-left: auto;
+
+    /* border: 1px solid #000; */
+    span {
+        font-size: 2.2rem;
+    }
+
+    span:first-child {
+        display: var(--dark-icon-modo);
+    }
+
+    span:last-child {
+        display: var(--light-icon-modo);
+    }
+}
+
+.content-switch {
+    background-color: var(--swithc-bg-color);
+    width: 4.5rem;
+    padding: 0.2rem;
+    border-radius: 20px;
+
+    input {
+        display: none;
+    }
+
+}
+
+.switchMode {
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--switch-color);
+    transition: transform .2s;
+    transform: var(---traslateX-switch, 0);
+}
+
+/** -------Stylos del main:content */
+.content {
+    flex: 1;
+    background-color: var(--bg-color-main);
+    color: var(--text-color);
+    /* overflow: hidden; */
+}
+
+.content__search {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* border: 1px solid #000; */
+}
+
+.search__input,
+.options__content {
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.search__input {
+    background-color: var(--bg-color-header);
+    width: 100%;
+    max-width: 25rem;
+
+    span {
+        vertical-align: middle;
+        margin-right: 12px;
+    }
+
+    input {
+        background-color: transparent;
+        color: inherit;
+        width: 85%;
+        border: none;
+        font-size: inherit;
+        vertical-align: middle;
+    }
+
+    input:focus-visible {
+        outline: none;
+    }
+
+    input::placeholder {
+        color: inherit;
+        opacity: 0.7;
+    }
+}
+
+.options__content {
+    background-color: var(--bg-color-header);
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    width: 12rem;
+}
+
+.text__option {
+    opacity: 0.9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.icon-ption{
+    transition: transform 0.2s;
+    transform: rotate(0deg);
+}
+.rotate{
+    transform: rotate(-180deg);
+}
+
+
+.options {
+    position: absolute;
+    border-radius: 6px;
+    top: 110%;
+    left: 0;
+    right: 0;
+    border: none;
+    display: none;
+    background-color: var(--bg-color-header);
+    padding: 0.6rem 0;
+    span {
+        padding: 0.5rem 1rem;
+        display: block;
+        margin: 0;
+    }
+}
+
+.block {
+    display: block;
+}
+
+/** -------STYLOS COUNTRIES */
+
+.content__countries {
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 3.7rem;
+    font-size: 0.98rem;
+}
+
+.countrie {
+    background-color: var(--bg-color-header);
+    border-radius: 7px;
+    overflow: hidden;
+    cursor: pointer;
+
+    img {
+        width: 100%;
+        height: 13rem;
+    }
+
+    div {
+        padding: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1em;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        display: block;
+        font-size: 0.96em;
+        margin-bottom: 0.4rem;
+    }
+
+    span {
+        margin-left: 6px;
+        opacity: 0.7;
+
+    }
+}
+
+
+footer {
+    padding: 2rem;
+    background-color: var(--bg-color-main);
+}
+
+@media screen and (min-width: 768px) {
+    .content__countries {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
